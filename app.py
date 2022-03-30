@@ -12,9 +12,9 @@ with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-c
 
 ########### Define a few variables ######
 
-tabtitle = 'Virginia Counties'
-sourceurl = 'https://www.kaggle.com/muonneutrino/us-census-demographic-data'
-githublink = 'https://github.com/austinlasseter/dash-virginia-counties'
+tabtitle = 'Ohio Counties'
+sourceurl = 'https://github.com/dpulluri/305-virginia-census-data/blob/main/resources/oh-stats.pkl'
+githublink = 'https://github.com/dpulluri/305-virginia-census-data'
 varlist=['TotalPop', 'Men', 'Women', 'Hispanic',
        'White', 'Black', 'Native', 'Asian', 'Pacific', 'VotingAgeCitizen',
        'Income', 'IncomeErr', 'IncomePerCap', 'IncomePerCapErr', 'Poverty',
@@ -34,7 +34,7 @@ app.title=tabtitle
 ########### Layout
 
 app.layout = html.Div(children=[
-    html.H1('Virginia Census Data 2017'),
+    html.H1('Ohio Census Data 2017'),
     # Dropdowns
     html.Div(children=[
         # left side
@@ -69,7 +69,7 @@ def display_results(selected_value):
     fig = go.Figure(go.Choroplethmapbox(geojson=counties,
                                     locations=df['FIPS'],
                                     z=df[selected_value],
-                                    colorscale='Blues',
+                                    colorscale='Earth',
                                     text=df['County'],
                                     zmin=valmin,
                                     zmax=valmax,
